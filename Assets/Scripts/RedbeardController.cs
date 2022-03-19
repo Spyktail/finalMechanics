@@ -37,9 +37,8 @@ public class RedbeardController : MonoBehaviour
     void Update()
     {
         yaw += lookSpeedHoriz * lookX;
-        lookY = Mathf.Clamp(lookY, -10.0f, 30.0f);
         pitch -= lookSpeedVert * lookY;
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        transform.eulerAngles = new Vector3(Mathf.Clamp(pitch,-30.0f, 30.0f), yaw, 0.0f);
         //movement = playerInput.OnMove();
     }
 
