@@ -62,6 +62,8 @@ public class RedbeardController : MonoBehaviour
         [Header("MidAir Jump")]
         public bool midairJump;
         public float midairJumpHeight;
+        private bool isAirborne;
+        public int extraJumps;
 
 		// cinemachine
 		private float _cinemachineTargetYaw;
@@ -123,6 +125,11 @@ public class RedbeardController : MonoBehaviour
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+
+            if (_input.quit)
+            {
+                Application.Quit();
+            }
             //OnControllerColliderHit(Wall);
 		}
 
@@ -252,13 +259,13 @@ public class RedbeardController : MonoBehaviour
 			{
 				// reset the fall timeout timer
 				_fallTimeoutDelta = FallTimeout;
-                midairJump = false;
+                isAirborne = false;
+                extraJumps = 1;
 
 				// stop our velocity dropping infinitely when grounded
 				if (_verticalVelocity < 0.0f)
 				{
 					_verticalVelocity = -2f;
-                    midairJump = false;
 				}
 
 				// Jump
@@ -266,7 +273,9 @@ public class RedbeardController : MonoBehaviour
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    isAirborne = true;
                     //midairJump = true;
+                    _input.jump = false;
 				}
 
 				// jump timeout
@@ -294,18 +303,33 @@ public class RedbeardController : MonoBehaviour
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
-
-            if (!Grounded == false)
+            if (extraJumps <= 0)
             {
-                midairJump = true;
+                midairJump = false;
+                _input.jump = false;
             }
 
-            if (midairJump && _input.jump)
+            if (!Grounded)
+            {
+                isAirborne = true;
+            }
+            if (isAirborne)
+            {
+                midairJump = true;
+            
+            }
+            else
+            {
+                midairJump = false;
+            }
+            if (isAirborne && midairJump && _input.jump)
             {
                 _verticalVelocity += midairJumpHeight;
                 _input.jump = false;
                 midairJump = false;
+                extraJumps--;
             }
+            
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

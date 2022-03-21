@@ -2104,7 +2104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
       propertyPath: midairJumpHeight
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
       propertyPath: speedBoostDuration

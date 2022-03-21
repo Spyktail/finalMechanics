@@ -12,6 +12,7 @@ public class TPSInput : MonoBehaviour
 		public bool jump;
         public bool doubleJump;
         public bool sprint;
+        public bool quit;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -49,6 +50,10 @@ public class TPSInput : MonoBehaviour
 		{
 			SprintInput(value.isPressed);
 		}
+        public void OnQuit(InputValue value)
+        {
+            QuitInput(value.isPressed);
+        }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -77,6 +82,10 @@ public class TPSInput : MonoBehaviour
 		{
 			sprint = newSprintState;
 		}
+        public void QuitInput(bool newQuitState)
+        {
+            quit = newQuitState;
+        }
 
 #if !UNITY_IOS || !UNITY_ANDROID
 
