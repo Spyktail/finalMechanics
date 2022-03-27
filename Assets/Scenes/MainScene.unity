@@ -1113,7 +1113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 9.38, z: -3.47}
+  m_LocalPosition: {x: 0.5, y: 9.68, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1391,7 +1391,7 @@ MonoBehaviour:
   ShoulderOffset: {x: 0.5, y: -0.4, z: 0}
   VerticalArmLength: 0.4
   CameraSide: 1
-  CameraDistance: 3.5
+  CameraDistance: 4.5
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 0
@@ -1659,7 +1659,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706158860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 9.38, z: -3.47}
+  m_LocalPosition: {x: 0.5, y: 9.68, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1456955062}
@@ -2058,60 +2058,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: Gravity
-      value: -30
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: RedSpeed
+    - target: {fileID: 1252705305, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
+      propertyPath: jumpHeight
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: MoveSpeed
-      value: 10
+    - target: {fileID: 1252705305, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
+      propertyPath: jumpTimeout
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: walkSpeed
-      value: 5
+    - target: {fileID: 1252705305, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
+      propertyPath: groundedRadius
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: wallSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: JumpHeight
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: JumpTimeout
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: SprintSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: wallGravity
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: GroundedRadius
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: doubleJumpHeight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: midairJumpHeight
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: speedBoostDuration
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: GroundLayers.m_Bits
+    - target: {fileID: 1252705305, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
+      propertyPath: groundLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 449358999711560503, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
@@ -2161,14 +2121,6 @@ PrefabInstance:
     - target: {fileID: 449358999711560504, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 449359000643511791, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: m_TagString
-      value: CinemachineTarget
-      objectReference: {fileID: 0}
-    - target: {fileID: 449359000816309191, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}

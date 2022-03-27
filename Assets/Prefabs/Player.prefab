@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 449358999711560500}
   - component: {fileID: 449358999711560502}
   - component: {fileID: 3272577485064042676}
+  - component: {fileID: 1252705305}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,28 +79,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b65a639a0401da4ead0dab9ea88c90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RedSpeed: 30
-  SprintSpeed: 5.335
-  RotationSmoothTime: 0.12
-  SpeedChangeRate: 10
-  JumpTimeout: 0.5
-  FallTimeout: 0.15
-  Grounded: 1
-  GroundedOffset: -0.14
-  GroundedRadius: 0.5
-  GroundLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  JumpHeight: 1.2
-  Gravity: -15
+  moveSpeed: 10
+  sprintSpeed: 30
+  rotationSmoothTime: 0.3
+  speedChangeRate: 10
+  speedBoostDuration: 0.5
   CinemachineCameraTarget: {fileID: 449359000643511791}
-  TopClamp: 70
-  BottomClamp: -30
-  CameraAngleOverride: 0
+  topClamp: 70
+  bottomClamp: -30
+  cameraAngleOverride: 0
   LockCameraPosition: 0
-  doubleJumpHeight: 0
-  doubleJump: 0
-  singleJump: 0
+  onWall: 0
+  walkSpeed: 10
+  wallSpeed: 20
+  wallGravity: -5
+  _jumping: {fileID: 1252705305}
 --- !u!114 &449358999711560502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +111,7 @@ MonoBehaviour:
   jump: 0
   doubleJump: 0
   sprint: 0
+  quit: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -138,6 +133,32 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.93, z: 0}
+--- !u!114 &1252705305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449358999711560504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19aed199a1745949b721f76a948f9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 1.2
+  gravity: -30
+  jumpTimeout: 0.5
+  fallTimeout: 0.15
+  isGrounded: 1
+  groundedOffset: -0.14
+  groundedRadius: 0
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  midairJump: 0
+  midairJumpHeight: 10
+  extraJumps: 0
+  verticalVelocity: 0
 --- !u!1 &449359000643511791
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +170,7 @@ GameObject:
   - component: {fileID: 449359000643511790}
   m_Layer: 0
   m_Name: playerCamRoot
-  m_TagString: Untagged
+  m_TagString: CinemachineTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449359000643511791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7, z: 0.03}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 449358999711560503}
@@ -195,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449359000816309192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.71, z: 0}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 449358999711560503}
