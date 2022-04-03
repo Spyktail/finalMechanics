@@ -2124,3 +2124,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
+--- !u!1 &449359000071969200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 449358999711560504, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
+  m_PrefabInstance: {fileID: 449359000071969199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &449359000071969201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1252705305, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
+  m_PrefabInstance: {fileID: 449359000071969199}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449359000071969200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19aed199a1745949b721f76a948f9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &449359000071969202 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 449358999711560500, guid: d045a82fc337ac94c89eec0aabbe004b, type: 3}
+  m_PrefabInstance: {fileID: 449359000071969199}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449359000071969200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b65a639a0401da4ead0dab9ea88c90b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &449359000071969203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449359000071969200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc605052b3278248b479a6abc9d0247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnWall: 0
+  walkSpeed: 8
+  wallSpeed: 15
+  wallGravity: -10
+  _jumping: {fileID: 449359000071969201}
+  _controller: {fileID: 449359000071969202}

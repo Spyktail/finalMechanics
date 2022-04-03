@@ -28,12 +28,7 @@ public class RedbeardController : MonoBehaviour
 		[Tooltip("For locking the camera position on all axis")]
 		public bool LockCameraPosition = false;
 
-        [Header("Wall Stuff")]
-        public bool isOnWall = false;
-        public float walkSpeed;
-        public float wallSpeed;
-        public float wallGravity;
-
+        
         
 
 		// cinemachine
@@ -122,26 +117,7 @@ public class RedbeardController : MonoBehaviour
 			return Mathf.Clamp(lfAngle, lfMin, lfMax);
 		}
 
-        void OnControllerColliderHit(ControllerColliderHit hit)
-    	{
-       		if (hit.gameObject.tag == ("Wall"))
-        	{
-            	_jumping.gravity = -10f;
-           		moveSpeed = wallSpeed;
-            //addd camera tilt here
-        	}
-        	else if (hit.gameObject.tag != ("Wall"))
-        	{
-            	_jumping.gravity = -30f;
-            	moveSpeed = walkSpeed;
-            //remove camera tilt here
-        	}
-
-        	if (hit.gameObject.tag == ("Reset"))
-        	{
-            	SceneManager.LoadScene("MainScene");
-        	}
-    	}
+        
         
 		private void Move()
 		{
