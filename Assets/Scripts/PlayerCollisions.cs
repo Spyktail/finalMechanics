@@ -10,18 +10,33 @@ public class PlayerCollisions : MonoBehaviour
         public float walkSpeed;
         public float wallSpeed;
         public float wallGravity;
+    
+    [Header("Win Condition")]
+    public float setWinTimer = 5.0f;
+    float winTimer;
+    public bool isLevelCompleted;
+
+
+
     public Jumping _jumping;
     public RedbeardController _controller;
 
     void Start()
     {
-        
+        isLevelCompleted = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (isLevelCompleted)
+        {
+            winTimer -= Time.deltaTime;
+            if (winTimer <= 0)
+            {
+                SceneManager.LoadSceneAsync("WinScene");
+            }
+        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -38,6 +53,13 @@ public class PlayerCollisions : MonoBehaviour
             	_controller.moveSpeed = walkSpeed;
             //remove camera tilt here
         	}
+
+            if (hit.gameObject.tag == ("Win"))
+            {
+                isLevelCompleted = true;
+                winTimer = setWinTimer;
+                
+            }
 
         	if (hit.gameObject.tag == ("Reset"))
         	{
